@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const BASE_URL = "https://jsonplaceholder.typicode.com";
+const BASE_URL = "https://jsonplaceholder.typicode.co";
 
 interface Post {
     id: number,
@@ -22,7 +22,7 @@ export default function Posts() {
                 const posts =await response.json() as Post[];
                 setPosts(posts);
                 } catch (error: any) {
-                    setError(error)
+                    setError(error.message)
                 } finally  {
                     setIsLoading(false);
                 } 
