@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 
-const BASE_URL = "https://jsonplaceholder.typicode.co";
+const BASE_URL = "https://jsonplaceholder.typicode.com";
 
 interface Post {
     id: number,
