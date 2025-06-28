@@ -3,8 +3,9 @@ import { useState, useEffect } from "react"
 const BASE_URL = "https://jsonplaceholder.typicode.com";
 
 interface Post {
-    id: number;
-    title: string
+    id: number,
+    title: string,
+    body: string
 }
 
 export default function Posts() {
@@ -39,13 +40,18 @@ export default function Posts() {
     }
 
     return(
-        <div>
+        <div style={{ textAlign: "center"}}>
             <h1>POSTS</h1>
-            <ul>
+            <ol style={{ listStylePosition: "inside", display: "inline-block", padding: 0 }}>
                 {posts.map((post) => {
-                    return <li key={post.id}>{post.title}</li>
+                    return <li key={post.id} style={{ textAlign: "center", margin: "0 0 10px 0", maxWidth: "90%" }}>
+                    <div style={{ display: "inline-block", verticalAlign: "top" }}>
+                    <h2>{post.title}</h2>
+                    <p>{post.body}</p>
+                    </div>
+                    </li>
                 })}
-            </ul>
+            </ol>
         </div>
     );
 }
