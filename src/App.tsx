@@ -1,21 +1,24 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const BASE_URL = "https://jsonplaceholder.typicode.com";
 
 interface Post {
-    id: Number;
+    id: number;
     title: string
 }
 
-export default function API() {
+export default function Posts() {
 
-    const [ posts, setPosts] = useState<Post[]>({});
+    const [ posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() =>{
         const fetchPosts = async () => {
             const response = await fetch(`${BASE_URL}/posts`);
-            const posts =await response.json() as ;
+            const posts =await response.json() as Post[];
+            setPosts(posts);
         };
+
+        fetchPosts();
     }, [])
 
     return(
